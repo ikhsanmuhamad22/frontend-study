@@ -12,52 +12,62 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="head_bar">
-  <h1 class="head_bar__title">Bookshelf Apps</h1>
+<header>
+  <div>
+    <h1>Bookshelf Apps</h1>
+  </div>
+  <div>
+    <button class="button hidden-form">Tambah Buku</button>
+    <input id="searchBookTitle" type="text" class="input" placeholder="Cari Buku">
+  </div>
 </header>
 <main>
-  <section class="search_section">
-    <h2>Cari Buku</h2>
-    <form id="searchBook">
-      <label for="searchBookTitle">Judul</label>
-      <input id="searchBookTitle" type="text">
-      <button id="searchSubmit" type="submit">Cari</button>
-    </form>
+  <section class="notification" hidden="true">
+    <p id="text-notif"></p>
   </section>
-
-  <section class="input_section">
-    <h2>Masukkan Buku Baru</h2>
+  <section id="toggle-hidden" class="form-container" hidden="true">
+    <h2>Masukkan Buku Baru</h2><br>
     <form id="inputBook">
-      <div class="input">
-        <label for="inputBookTitle">Judul</label>
-        <input id="inputBookTitle" type="text" required>
+      <div>
+        <label for="inputBookTitle" class="form-label">Judul</label>
+        <input id="inputBookTitle" class="form-input" type="text" required>
       </div>
-      <div class="input">
-        <label for="inputBookAuthor">Penulis</label>
-        <input id="inputBookAuthor" type="text" required>
+      <div>
+        <label for="inputBookAuthor" class="form-label" >Penulis</label>
+        <input id="inputBookAuthor" class="form-input" type="text" required>
       </div>
-      <div class="input">
-        <label for="inputBookYear">Tahun</label>
-        <input id="inputBookYear" type="number" required>
+      <div>
+        <label for="inputBookYear" class="form-label">Tahun</label>
+        <input id="inputBookYear" class="form-input" type="date" required>
       </div>
-      <div class="input_inline">
+      <div>
         <label for="inputBookIsComplete">Selesai dibaca</label>
         <input id="inputBookIsComplete" type="checkbox">
       </div>
-      <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum selesai dibaca</span></button>
+      <div class="button-form">
+        <button class="hidden-form danger-button form-submit" type="button">Cencel</button>
+        <button id="bookSubmit" class="form-submit primary-button" type="submit">Submit</button>
+      </div>
     </form>
   </section>
-
-  <section class="book_shelf">
-    <h2>Belum selesai dibaca</h2>
-    <div id="incompleteBookshelfList" class="book_list">
+  <section id="search" hidden="true">
+    <div>
+      <h2>Hasil pencarian</h2>
+      <div id="searchBook" class="book-list">
+      </div>
     </div>
   </section>
-
-  <section class="book_shelf">
-    <h2>Selesai dibaca</h2>
-    <div id="completeBookshelfList" class="book_list">
+  <section id="books-shelf">
+    <div>
+      <h2>Belum selesai dibaca</h2>
+      <div id="incompleteBookshelfList" class="book-list">
+      </div>
     </div>
+    <div>
+      <h2>Selesai dibaca</h2>
+      <div id="completeBookshelfList" class="book-list">
+      </div>
+  </div>
   </section>
 </main>
 
