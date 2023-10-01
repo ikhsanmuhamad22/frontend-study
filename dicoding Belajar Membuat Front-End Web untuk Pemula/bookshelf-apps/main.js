@@ -1,8 +1,11 @@
+
+// inisialisasi variable
 const STORAGE_KEY = 'books';
 const RENDER_EVENT = 'render books'
 
 const books = []
  
+// event saat load web
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('inputBook')
   form.addEventListener('submit', (e) => {
@@ -12,9 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDataFromStorage();
 })
 
+// keperluarn local storage
 const saveData = () => {
-    const parsed = JSON.stringify(books);
-    localStorage.setItem(STORAGE_KEY, parsed);
+  const parsed = JSON.stringify(books);
+  localStorage.setItem(STORAGE_KEY, parsed);
 }
 
 const loadDataFromStorage = () => {
@@ -29,6 +33,7 @@ const loadDataFromStorage = () => {
   document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+// toggle untuk mengambahkan input book
 const toggleInput = document.querySelectorAll('.hidden-form');
 toggleInput.forEach(toggleBook => {
   toggleBook.addEventListener('click', () => {
@@ -41,6 +46,7 @@ toggleInput.forEach(toggleBook => {
   });
 });
 
+// event render data yang masuk
 document.addEventListener(RENDER_EVENT, function () {
   const searchTerm = document.getElementById('searchBookTitle').value.toLowerCase();
   const unread = document.getElementById('incompleteBookshelfList');
@@ -52,7 +58,7 @@ document.addEventListener(RENDER_EVENT, function () {
     const bookTitle = book.title.toLowerCase();
     if (bookTitle.includes(searchTerm)) {
       const bookShelf = makeBookshelf(book);
-      if (!book.isCompleted) {
+      if (!book.isComplete) {
         unread.append(bookShelf);
       } else {
         readed.append(bookShelf);
@@ -61,19 +67,21 @@ document.addEventListener(RENDER_EVENT, function () {
   }
 });
 
+// fun search buku
 const searchBook = document.getElementById('searchBookTitle')
   searchBook.addEventListener('input', () => {
   document.dispatchEvent(new Event(RENDER_EVENT));
 })
 
+// fun tambah buku
 const addBook = () => {
   let id = +new Date()
   const title = document.getElementById('inputBookTitle').value
   const author = document.getElementById('inputBookAuthor').value
   const year = document.getElementById('inputBookYear').value
-  const isCompleted = document.getElementById('inputBookIsComplete').checked
+  const isComplete = document.getElementById('inputBookIsComplete').checked
 
-  const book = helper(id, title, author, year, isCompleted)
+  const book = helper(id, title, author, year, isComplete)
   books.unshift(book)
   document.dispatchEvent(new Event(RENDER_EVENT))
 
@@ -88,11 +96,12 @@ const addBook = () => {
   saveData()
 }
 
-const helper = (id, title, author, year, isCompleted) => {
-  const value = { id, title, author, year, isCompleted }
+const helper = (id, title, author, year, isComplete) => {
+  const value = { id, title, author, year, isComplete }
   return value
 }
 
+// fun buat element buku
 const makeBookshelf = (book) => {
   const title = document.createElement('h3')
   title.innerText = `Book Title: ${book.title}`
@@ -114,7 +123,7 @@ const makeBookshelf = (book) => {
   const divAction = document.createElement('div')
   divAction.classList.add('action')
 
-  if(book.isCompleted) {
+  if(book.isComplete) {
     const buttonUndo = document.createElement('button')
     buttonUndo.classList.add('button-book','primary-button')
     buttonUndo.innerText = 'Belum Selesai dibaca'
@@ -143,24 +152,27 @@ const makeBookshelf = (book) => {
   return article
 }
 
+// fun undo completed book
 const undoCompletedBook = (id) => {
   const selectBook = findId(id)
 
-  books[selectBook].isCompleted = false
+  books[selectBook].isComplete = false
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData()
 }
 
+// fun completed book
 const CompletedBook = (id) => {
   const selectBook = findId(id)
 
   if(selectBook == null) return
 
-  books[selectBook].isCompleted = true
+  books[selectBook].isComplete = true
   document.dispatchEvent(new Event(RENDER_EVENT));
   saveData()
 }
 
+// fun hapus buku
 const removeBook = (id) => {
   const target = findId(id);
  
@@ -172,6 +184,7 @@ const removeBook = (id) => {
   saveData()
 }
 
+// fun cari buku buat keperluan remove sama percompletedan
 const findId = (id) => {
   for (const index in books) {
     if (books[index].id == id) {
@@ -182,6 +195,7 @@ const findId = (id) => {
   return -1;
 }
 
+// fun untuk menampilkan notif singkat saat add dan remove buku
 const notification = (text) => {
   const notif = document.getElementsByClassName('notification')[0]
   const textNotif = document.getElementById('text-notif')
