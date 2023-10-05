@@ -1,0 +1,68 @@
+doc isan buat
+
+dasar components
+-assets
+-components
+-layouts
+-middleware
+-pages
+-plugins
+-static
+-store
+
+sintanks template dasar
+-text || {{  }} or v-once
+-raw html || v-html = var
+-attributes || v=bind:'name properti'
+-js expression 
+-v-if
+-v-for
+-v-dom || v-on:'name event'
+-dynamic argument || v-bind:[attributeName]='url' or v-on:[eventName]="doSomething"
+
+shorthand 
+bind menjadi :
+on menjadi @
+
+class dan styles bindings
+class
+-object syntax || v-bind:class='{nama class}'
+-array syntax || v-bind:class='[nama class]'
+syles bindings
+-objecxt syntax || v-bind:style='{yang ingin di style}'
+-array syntax || v-bind:style='[yang ingin di style]'
+
+props
+
+computed properties
+-filtering data
+-count data
+-conditional boolean using v-if
+
+conditional rendering
+-v-if && v-else
+-v-if pada template juga memungkinkan
+-v-show
+
+lifecycle
+-beforeCreate
+-create
+-beforeMount
+-mounted
+-beforeUpdate
+-updated
+-beforeDestroy
+-destroyed
+
+listrendering
+-v-for || contohnya ada di penerapan code
+
+fatching api using axios
+-lengkapnya ada di penerapan kode
+
+state menegement
+-state
+-action
+-mutations
+-getter
+
