@@ -2,3 +2,5 @@ Daftar type data primitif di typescript
 -number
 -boolean
 -string
+
+-cek code dengan menggunakan kompilasi code tsc karna babel typescript bisa keliru
