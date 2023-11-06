@@ -1,0 +1,4 @@
+Daftar type data primitif di typescript
+-number
+-boolean
+-string
