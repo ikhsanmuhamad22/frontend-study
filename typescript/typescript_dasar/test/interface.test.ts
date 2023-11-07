@@ -1,4 +1,5 @@
 import { Employe, Menager } from "../src/employe";
+import { Person } from "../src/person";
 import { Seller } from "../src/seller";
 
 describe('Interface', () => {
@@ -62,11 +63,6 @@ describe('Interface', () => {
   });
 
   it('should suport function in interface', () => {
-    interface Person {
-      name: string;
-      sayHello(name: string): string
-    }
-
     const person: Person = {
       name: 'ikhsan',
       sayHello: function (name: string):string {
@@ -93,5 +89,15 @@ describe('Interface', () => {
     }
 
     console.info(domain)
+  });
+
+  it('should support type assections', () => {
+    const person: any = {
+      name: 'ikhsan',
+      age: 20
+    }
+
+    const person2: Person = person as Person;
+    console.info(person2);
   });
 });
