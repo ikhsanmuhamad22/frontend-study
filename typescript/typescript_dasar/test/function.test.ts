@@ -58,4 +58,15 @@ describe('Function', () => {
     expect(callme('ikhsan')).toBe('IKHSAN')
     expect(callme(10)).toBe(100)
   });
+
+  it('should function as parameter', () => {
+    function sayHello(name: string, filter: (name: string) => string): string {
+      return `hello ${filter(name)}`
+    }
+    // function toUpper(name: string):string {
+    //   return name.toUpperCase()
+    // }
+
+    expect(sayHello('ikhsan', (name: string):string => name.toUpperCase())).toBe('hello IKHSAN')
+  });
 });
