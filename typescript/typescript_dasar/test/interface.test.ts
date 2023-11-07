@@ -1,3 +1,4 @@
+import { Employe, Menager } from "../src/employe";
 import { Seller } from "../src/seller";
 
 describe('Interface', () => {
@@ -42,5 +43,21 @@ describe('Interface', () => {
     }
     expect(name["name"]).toBe('ikhsan')
     expect(name["address"]).toBe('indonesia')
+  });
+
+  it('should support extends interface', () => {
+    const employe: Employe = {
+      id: '1',
+      name: 'ikhsan',
+      division: 'IT'
+    }
+    const menager: Menager = {
+      id: '1',
+      name: 'ikhsan',
+      division: 'IT',
+      numberOfEmployes: 12
+    }
+
+    console.info(menager)
   });
 });

@@ -4,3 +4,5 @@ Daftar type data primitif di typescript
 -string
 
 -cek code dengan menggunakan kompilasi code tsc karna babel typescript bisa keliru
+
+-interface bisa dilanjutkan ke interface lainya atau disebut extending interface
