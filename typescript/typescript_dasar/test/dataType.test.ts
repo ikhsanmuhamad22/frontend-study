@@ -35,4 +35,21 @@ describe('Data type array', function() {
     console.info(person[0])
     console.info(person[2])
   })
+
+  it('should support an any type', function() {
+    // adalah type data yang support semua type but not recommend
+    const person: any = {
+      name: 'ikhsan',
+      age: 19,
+    }
+
+    console.info(person)
+  })
+
+  it('should support an union type', function() {
+    // adalah type data yang support beberapa type sesuai yang di declare
+    const person: number | string = 'ikhsan'
+
+    console.info(person)
+  })
 })
