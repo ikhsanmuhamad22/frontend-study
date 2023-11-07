@@ -60,4 +60,19 @@ describe('Interface', () => {
 
     console.info(menager)
   });
+
+  it('should suport function in interface', () => {
+    interface Person {
+      name: string;
+      sayHello(name: string): string
+    }
+
+    const person: Person = {
+      name: 'ikhsan',
+      sayHello: function (name: string):string {
+        return `hello ${name} my name is ${this.name}`
+      }
+    }
+    console.info(person.sayHello('rahma'))
+  });
 });
