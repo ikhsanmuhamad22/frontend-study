@@ -28,3 +28,25 @@ console.log(objInArr([['Michael Jackson', 'Male', 2000], ['Michael 2', 'Male', 2
 // Misal penumpang berangkat dari A ke B maka jaraknya 1, jadi harus membayar 3000.
 // Inputan akan berupa array dengan struktur [ nama penumpang, mulai dari rute, sampai rute ].
 // Struktur output yang diharapkan yaitu => [ { penumpang: namaPenumpang, naikDari: ruteMulai, sampai: ruteAkhir, ongkos: jumlahBayar }, … ]
+interface penumpangType {
+  penumpang: string;
+  naikDari: string;
+  sampai: string;
+  ongkos: number;
+}
+const countFee = (arr: string[]): [penumpangType] => {
+  let route:string[]  = ["A","B","C","D","E","F","G","H","I","J"];
+  let objRoute: any = {}
+  let fee = 0
+  route.map((key) => {
+    objRoute[key] = fee += 3000
+  })
+  const ruteAwal = objRoute[arr[1]]
+  const ruteAkhir = objRoute[arr[2]]
+  return [{penumpang: arr[0], naikDari: arr[1], sampai: arr[2], ongkos: Math.abs(ruteAwal - ruteAkhir)}]
+  
+
+}
+
+console.log(countFee([ 'ikhsan', 'B', 'G' ]))
+
