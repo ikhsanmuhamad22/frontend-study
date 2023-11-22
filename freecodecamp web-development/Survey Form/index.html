@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">freeCodeCamp Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
+    <form action="#" id="survey-form">
+      <section class="block">
+        <label id="name-label" for="name">Name <input type="text" id="name"  name="name" placeholder="Enter your name" required></label>
+        <label id="email-label" for="email">Email <input type="email" id="email"  name="email" placeholder="Enter your email" required></label>
+        <label id="number-label" for="age">Age <input type="number" min="10" max="100" id="number" name="age" placeholder="Enter your age" required></label>
+      </section>
+      <section class="block">
+        <label for="dropdown "><p>Which option best describes your current role?</p>
+          <select id="dropdown" name="dropdown ">
+            <option value="">select current role</option>
+            <option value="1">Student</option>
+            <option value="2">Fulltime Job</option>
+            <option value="3">Fulltime Leaner</option>
+            <option value="4">Prefer not to say</option>
+            <option value="5">Other</option>
+          </select>
+        </label>
+      </section>
+      <section>
+        <p>Would you recommend freeCodeCamp to a friend?</p>
+        <label for="recommendation"><input id="recommendation" type="radio" name="account-type" class="inline" value="definitely" checked /> Definitely</label>
+        <label for="recommendation"><input id="recommendation" type="radio" name="account-type" class="inline" value="maybe" /> Maybe</label>
+        <label for="recommendation"><input id="recommendation" type="radio" name="account-type" value="not sure" class="inline" /> Not Sure</label>
+      </section>
+      <section class="block">
+        <label for="dropdown "><p>What is your favorite feature of freeCodeCamp?</p>
+          <select id="dropdown " name="dropdown ">
+            <option value="">select an option</option>
+            <option value="1">Chalange</option>
+            <option value="2">Project</option>
+            <option value="3">Community</option>
+            <option value="4">Open Source</option>
+          </select>
+        </label>
+      </section>
+      <section>
+        <p>What would you like to see improved? (Check all that apply)</p>
+        <label for="improved">
+          <input class="inline" id="improved" type="checkbox" required name="improved" value="front-end" />Front-end Projects
+        </label>
+        <label for="improved">
+          <input class="inline" id="improved" type="checkbox" required name="improved" value="back-end" />Back-end Projects
+        </label>
+        <label for="improved">
+          <input class="inline" id="improved" type="checkbox" required name="improved" value="data-visual" />Data visualization
+        </label>
+        <label for="improved">
+          <input class="inline" id="improved" type="checkbox" required name="improved" value="challanges" />Challanges
+        </label>
+        <label for="improved">
+          <input class="inline" id="improved" type="checkbox" required name="improved" value="open-source" />Open Source Community
+        </label>
+        </label>
+      </section>
+      <section>
+        <p>Any comments or suggestions?</p>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </section>
+      <section>
+        <button type="submit" id="submit">Submit</button>
+      </section>
+    </form>
+  </div>
+</body>
+</html>
