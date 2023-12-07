@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import PropTypes from "prop-types";
 
 class ContactInput extends React.Component {
   constructor(props) {
@@ -6,9 +7,9 @@ class ContactInput extends React.Component {
 
     // inisialisasi state
     this.state = {
-      name: '',
-      tag: '',
-    }
+      name: "",
+      tag: "",
+    };
 
     this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
     this.onTagChangeEventHandler = this.onTagChangeEventHandler.bind(this);
@@ -19,7 +20,7 @@ class ContactInput extends React.Component {
     this.setState(() => {
       return {
         name: event.target.value,
-      }
+      };
     });
   }
 
@@ -27,7 +28,7 @@ class ContactInput extends React.Component {
     this.setState(() => {
       return {
         tag: event.target.value,
-      }
+      };
     });
   }
 
@@ -37,14 +38,28 @@ class ContactInput extends React.Component {
   }
 
   render() {
-   return (
-     <form className='contact-input' onSubmit={this.onSubmitEventHandler}>
-       <input type="text" placeholder="Nama" value={this.state.name} onChange={this.onNameChangeEventHandler} />
-       <input type="text" placeholder="Tag" value={this.state.tag} onChange={this.onTagChangeEventHandler} />
-       <button type="submit">Tambah</button>
-     </form>
-   )
- }
+    return (
+      <form className="contact-input" onSubmit={this.onSubmitEventHandler}>
+        <input
+          type="text"
+          placeholder="Nama"
+          value={this.state.name}
+          onChange={this.onNameChangeEventHandler}
+        />
+        <input
+          type="text"
+          placeholder="Tag"
+          value={this.state.tag}
+          onChange={this.onTagChangeEventHandler}
+        />
+        <button type="submit">Tambah</button>
+      </form>
+    );
+  }
 }
+
+ContactInput.propTypes = {
+  addContact: PropTypes.func.isRequired,
+};
 
 export default ContactInput;
